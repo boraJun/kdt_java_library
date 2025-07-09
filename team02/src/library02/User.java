@@ -46,10 +46,13 @@ public abstract class User {
 
 		@Override
 		public boolean equals(Object obj) {
-			if(this.hashCode() != obj.hashCode())
-				return false;
+			if(obj instanceof User) {
+				if(!((User) obj).getId().equals(this.id)) {
+					return false;
+				}
+			}
 			
-			return this.id.equals(obj.toString());
+			return this.hashCode() != obj.hashCode();
 		}
 
 		@Override
