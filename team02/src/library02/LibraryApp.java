@@ -9,7 +9,15 @@ public class LibraryApp {
 		Scanner sc = new Scanner(System.in);
 		ConsoleUI console = new  ConsoleUI();
 		LoginManager login = new LoginManager();
+		LibraryService scrvice = new LibraryService();
 		
+		console.printMenu();
+		login.login(null, null);
+		
+		console.printloginMenu();
+		
+		
+		System.out.println(scrvice.getBookList());
 		
 		
 		
@@ -17,16 +25,6 @@ public class LibraryApp {
 		
 		
 		
-		while(true) {
-			System.out.println("번호를 선택하세요: " + console.printMenu);
-			console.printMenu(sc.nextInt());
-			
-			
-			
-		
-			
-			break;
-		}
 		
 	}
 }

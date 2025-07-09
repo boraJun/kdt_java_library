@@ -25,34 +25,23 @@ public class ConsoleUI {
 	String name;
 	
 
-	public void printMenu(int num){
-		
-			if(num == 1) { // 
-				System.out.println("아이디 비밀번호 입력해주세요");
-				login();
-			}else if(num == 2) {
-				System.out.println("회원가입 창입니다");
-				System.out.println("아이디 비밀번호 이름을 입력해주세요");
-				 sdgknkdsgl();
-		}
+	public  void printMenu(){
+		System.out.println(printMenu);
 	}
 	
-	private void login() {
-		login.login(id = sc.nextLine(), pw = sc.nextLine());
-		
+	public void printloginMenu() {
+		System.out.println(loginMenu);		
 	}
 	
-	public void sdgknkdsgl() {
-		login.addMember(id = sc.nextLine(), pw =sc.nextLine() , name =sc.nextLine() );
-	}
+	
 	
 	
 	public void printRnetalBookList() {
-		
+		service.getBookList();
 	}
 	
 	public void printReturnBookList() {
-		
+		login.getUser(id);
 	}
 	
 }
