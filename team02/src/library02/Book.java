@@ -30,7 +30,7 @@ public class Book implements Borrow {
 	@Override
 	public boolean borrowBook() throws BookNotAvailableException {
 		if (isBorrowed == true) {
-			throw new BookNotAvailableException();
+			throw new BookNotAvailableException("다른 고객님이 대여중입니다.");
 		} else {
 			this.isBorrowed = true;
 			return this.isBorrowed;
