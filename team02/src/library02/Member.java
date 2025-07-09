@@ -34,7 +34,7 @@ public class Member extends User {
 		if (member.bookNameList.size() >= MAX_BORROW) {
 			// 이미 7권의 대출 도서를 가지고 있을 때.
 			// ( >= ) 연산자 대신 ( == ) 를 써도 되지만 혹시 몰라 이상으로 넣음.
-			throw new MaxBorrowException();
+			throw new MaxBorrowException("");
 			// 대출 권수가 꽉 찼으므로 예외 넘겨주기
 		} else {
 			member.bookNameList.add(title);
