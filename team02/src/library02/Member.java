@@ -21,7 +21,7 @@ public class Member extends User {
 	
 	// 로그인 메소드 오버라이드 (id, pw 대조)
 	@Override
-	boolean login(String id, String pw) {
+	public boolean login(String id, String pw) {
 		if (this.id.equals(id) && this.pw.equals(id)) {
 			return true;
 		} else {
