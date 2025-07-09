@@ -13,7 +13,7 @@ public class LoginManager {
 //		return false;
 	private Map<String, User> userMap;
 	
-	public LoginManager() {
+	public LoginManager() { 
 		userMap = new HashMap<>();
 	}
 	
@@ -27,7 +27,7 @@ public class LoginManager {
 	 * 
 	 */
 	public boolean addMember(String id, String password, String name) {
-		if(userMap.containsKey(id)) {
+		if(userMap.containsKey(id)) { // 회원가입
 			return false;
 		}
 

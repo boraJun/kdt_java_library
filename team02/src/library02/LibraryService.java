@@ -7,7 +7,7 @@ import java.util.List;
 public class LibraryService {
 //리스트<Borrow> = <Book>//업캐스팅
 	private List<Borrow> bookList;
-	static final int MAX_BOOK_COUNT = 100;
+	static final int MAX_BOOK_COUNT = 5;
 
 //기본생성자   
 	public LibraryService() {
@@ -17,9 +17,12 @@ public class LibraryService {
 	}
 	//도서목록 생성 메소드
 	private void initBookList() {
-		for(int i = 0; i < MAX_BOOK_COUNT; i++) {
-			bookList.add(new Book("B_" + i + "", "W_" + i + ""));
-		}
+			bookList.add(new Book("자바의 정석1" , "김영수" ));
+			bookList.add(new Book("자바의 정석2" , "김영수" ));
+			bookList.add(new Book("자바의 정석3" , "김영수" ));
+			bookList.add(new Book("자바의 정석4" , "김영수" ));
+			bookList.add(new Book("자바의 정석5" , "김영수" ));
+		
 	}
 
 //도서목록 출력 메소드
@@ -38,13 +41,11 @@ public class LibraryService {
 	public Book searchBook(String bookName) {
 		if (bookList == null)
 			return null;
-
 		for (Borrow b : bookList) {
 			if (b instanceof Book) {
-
-				if (((Book) b).getName().equals(bookName))
-
+				if (((Book) b).getName().equals(bookName)) {
 					return (Book) b;
+				}
 			}
 		}
 
@@ -56,7 +57,8 @@ public class LibraryService {
 //   member -> 대여 호출
 	public boolean rentalBook(Member m, String bookName) throws MaxBorrowException, BookNotAvailableException {
 		if (this.searchBook(bookName).borrowBook()) {
-			m.borrowingBook(bookName);
+			if(m != null)
+				m.borrowingBook(bookName);
 			return true;
 		}
 
