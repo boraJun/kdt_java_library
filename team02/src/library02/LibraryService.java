@@ -15,7 +15,7 @@ public class LibraryService {
 		bookList = new ArrayList<Borrow>();
 		initBookList();
 	}
-	
+	//도서목록 생성 메소드
 	private void initBookList() {
 		for(int i = 0; i < MAX_BOOK_COUNT; i++) {
 			bookList.add(new Book("B_" + i + "", "W_" + i + ""));
@@ -28,7 +28,7 @@ public class LibraryService {
 		List<String> bl = new ArrayList<>();// 객체 생성 업캐스팅임
 		for (Borrow b : bookList) {
 			if (b instanceof Book) {
-				bl.add(((Book) b).getName());
+				bl.add(((Book)b).toString());
 			}
 		}
 		return bl;

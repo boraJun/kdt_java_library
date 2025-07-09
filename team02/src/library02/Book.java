@@ -12,20 +12,14 @@ public class Book implements Borrow {
 		this.writer = writer;
 		this.bookhash = name.hashCode();
 	}
-	
-	
 
 	public String getName() {
 		return name;
 	}
 
-
-
 	public String getWriter() {
 		return writer;
 	}
-
-
 
 	@Override
 	public boolean borrowBook() throws BookNotAvailableException {
@@ -50,8 +44,9 @@ public class Book implements Borrow {
 
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Book) {
-			if(((Book)obj).name.hashCode() == bookhash);
+		if (obj instanceof Book) {
+			if (((Book) obj).name.hashCode() == bookhash)
+				;
 			return true;
 		} else {
 			return false;
@@ -60,7 +55,8 @@ public class Book implements Borrow {
 
 	@Override
 	public String toString() {
-		String result = "[책 이름] " + this.name + ", [저자] " + this.writer + "입니다.";
+		String result = "[책 이름] " + this.name + ", [저자] " + this.writer + "입니다."
+				+ (isBorrowed ? "이미 대여중입니다." : "대여 가능합니다.");
 		return result;
 	}
 
