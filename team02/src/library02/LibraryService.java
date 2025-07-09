@@ -7,18 +7,25 @@ import java.util.List;
 public class LibraryService {
 //리스트<Borrow> = <Book>//업캐스팅
 	private List<Borrow> bookList;
+	static final int MAX_BOOK_COUNT = 100;
 
 //기본생성자   
-	public LibraryService(List<Borrow> bookList) {
+	public LibraryService() {
 		super();
-		this.bookList = new ArrayList<Borrow>();// 상속하면 Borrow -> Book 으로 바꿔
-		this.bookList = bookList;
+		bookList = new ArrayList<Borrow>();
+		initBookList();
+	}
+	
+	private void initBookList() {
+		for(int i = 0; i < MAX_BOOK_COUNT; i++) {
+			bookList.add(new Book("B_" + i + "", "W_" + i + ""));
+		}
 	}
 
 //도서목록 출력 메소드
 //List<String> getBookList()
 	public List<String> getBookList() {
-		List<String> bl = new ArrayList<>();
+		List<String> bl = new ArrayList<>();// 객체 생성 업캐스팅임
 		for (Borrow b : bookList) {
 			if (b instanceof Book) {
 				bl.add(((Book) b).getName());
@@ -57,7 +64,7 @@ public class LibraryService {
 	}
 
 //boolean 반납(Member, 도서제목) book -> 반납 호출
-//   book -> > 반납 호출
+//   book ->  반납 호출
 //   member -> 반납 호출
 	public boolean returnBook(Member m, String bookName) {
 		if (m.returningBook(bookName)) {

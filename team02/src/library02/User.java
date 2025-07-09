@@ -52,7 +52,7 @@ public abstract class User {
 				}
 			}
 			
-			return this.hashCode() != obj.hashCode();
+			return this.hashCode() == obj.hashCode();
 		}
 
 		@Override
