@@ -9,6 +9,11 @@ public class LibraryApp {
 		Scanner sc = new Scanner(System.in);
 		ConsoleUI console = new  ConsoleUI();
 		LoginManager login = new LoginManager();
+//		User user = new User();
+		String id;
+		String pw;
+		
+		
 		
 		while(true) {
 			
