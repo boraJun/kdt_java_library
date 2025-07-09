@@ -24,6 +24,9 @@ public class LibraryApp {
 			System.out.println("사용할 번호입력");
 
 			int num = sc.nextInt();
+			sc.nextLine();
+			if(num == 0)
+				break;
 			id = console.inputLogin(num);
 
 			if (id == null) {
