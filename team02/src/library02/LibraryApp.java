@@ -9,14 +9,15 @@ public class LibraryApp {
 		Scanner sc = new Scanner(System.in);
 		ConsoleUI console = new  ConsoleUI();
 		LoginManager login = new LoginManager();
-//		User user = new User();
-		String id;
-		String pw;
+		
+		
+		
+		
+
 		
 		
 		
 		while(true) {
-			
 			System.out.println("번호를 선택하세요: " + console.printMenu);
 			console.printMenu(sc.nextInt());
 			
