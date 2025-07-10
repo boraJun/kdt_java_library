@@ -3,28 +3,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginManager {
-//	map<id :String, User> 사용자
-//	public boolean addUser(id, pw, name) // 이미 존재하면 false, 추가하면 true
-//	public User getUser(String id)
-//	public boolean login(id, pw)
-//	if(map.containsKey(id)) 
-//		return 사용자.login(id, pw)
-//	else
-//		return false;
+	/**
+	 * @see user 정보 컬렉션, key : 사용자 id, value : User 객체
+	 */
 	private Map<String, User> userMap;
 	
+	//생성자
 	public LoginManager() { 
 		userMap = new HashMap<>();
 	}
 	
 	/**
-	 * 
+	 * @see 회원가입
 	 * @param id : 사용자 id
 	 * @param password : 사용자 password
 	 * @param name : 사용자 이름
-	 * @return 이미 id가 존재하면 false, 추가 완료하면 true 반환
+	 * @return 이미 id 가 존재하면 false, 추가 완료하면 true 반환
 	 * @author jbr
-	 * 
 	 */
 	public boolean addMember(String id, String password, String name) {
 		if(userMap.containsKey(id)) { // 회원가입
@@ -36,7 +31,7 @@ public class LoginManager {
 	}
 	
 	/**
-	 * 
+	 * @see 사용자 조회
 	 * @param id : 사용자 id
 	 * @param password : 사용자 password
 	 * @param name : 사용자 이름
@@ -53,11 +48,11 @@ public class LoginManager {
 	}
 	
 	/**
-	 * 
+	 * @see 로그인
 	 * @param id : 사용자 id
 	 * @param password : 사용자 password
-	 * @return id 와 password 둘 중 하나가 틀렸을 경우 false, 로그인 성공 시 true
-	 * @author jbr 
+	 * @return id 와 password 둘 중 하나 이상 틀렸을 경우 false, 로그인 성공 시 true
+	 * @author jbr
 	 */
 	public boolean login(String id, String password) {
 		if(userMap.containsKey(id)) {
