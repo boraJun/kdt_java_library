@@ -25,7 +25,7 @@ public class LibraryApp {
 
 			int num = sc.nextInt();
 			sc.nextLine();
-			if(num == 0)
+			if (num == 0)
 				break;
 			id = console.inputLogin(num);
 
@@ -46,7 +46,7 @@ public class LibraryApp {
 						List<String> list = sss.getRentedBooks();
 
 						if (list.size() != 0) {
-							for(String str : list)
+							for (String str : list)
 								System.out.println(str);
 							System.out.println();
 							System.out.println("반납할 책이름: ");
@@ -77,7 +77,7 @@ public class LibraryApp {
 					} catch (NullPointerException e) {
 						System.out.println("책 이름이 존재하지 않습니다.");
 					}
-				} else if(num == 3) {
+				} else if (num == 3) {
 					break;
 				}
 
