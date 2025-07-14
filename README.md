@@ -86,6 +86,3 @@
    				main메소드
 
 
-
-__클래스 다이어그램__
- <img width="1478" height="741" alt="Image" src="https://github.com/user-attachments/assets/c2da50a7-b3b2-4012-ab50-e1557173fe3f" />
