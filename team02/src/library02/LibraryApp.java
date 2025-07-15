@@ -1,6 +1,6 @@
 package library02;
 
-import java.awt.Menu;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,30 +19,45 @@ public class LibraryApp {
 		String pw;
 		String name;
 		String book;
-		while (true) {
+		int num = -1;
+
+		while (true) { // 기존회원은 로그인, 최초회원은 회원가입
 			console.printMenu();
 			System.out.println("사용할 번호입력");
 
-			int num = sc.nextInt();
-			sc.nextLine();
-			if (num == 0)
-				break;
-			id = console.inputLogin(num);
+			try {
 
-			if (id == null) {
-				System.out.println("실패");
+				num = sc.nextInt();
+				sc.nextLine();
+				if (num == 0)
+					break;
+				id = console.inputLogin(num);
+
+				if (id == null) {
+					System.out.println("실패");
+					continue;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("숫자를 입력하세요");
 				continue;
 			}
 
 			Member sss = (Member) login.getUser(id);
 
-			while (true) {
+			while (true) { //
 				console.printloginMenu();
 				System.out.println("사용할 번호입력");
-				num = sc.nextInt();
-				sc.nextLine();
-				if (num == 1) {
-					try {
+				try {
+					num = sc.nextInt();
+					sc.nextLine();
+				} catch (InputMismatchException e) {
+					System.out.println("숫자를 입력하세요");
+					sc.nextLine();
+					continue;
+				}
+
+				if (num == 1) { // 1번 로그인 선택
+					try { // 예외가 발생할 수 있는 코드
 						List<String> list = sss.getRentedBooks();
 
 						if (list.size() != 0) {
@@ -83,6 +98,7 @@ public class LibraryApp {
 
 			}
 		}
-
+		sc.close();
 	}
+
 }
